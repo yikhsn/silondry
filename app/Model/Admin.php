@@ -49,13 +49,6 @@ class Admin
     else return false;
   }
 
-  public function getUser(array $id)
-  {
-    $data = $this->db->getOneBy("pegawai", $id);
-    var_dump($data);
-    die();
-  }
-
   public function update_password(array $fields, array $username)
   {
     return $this->db->update("pegawai", $fields, $username);

@@ -3,7 +3,7 @@
   require_once "templates/header.php";
 ?>
 
-<div id="body-silony-container"> <!-- Tag div penutupnya di file footer.php-->
+<div id="body-silony-container">
 
   <div class="row no-gutters">
     <div id="body-silony">
@@ -39,7 +39,7 @@
               <th class="text-header-table col-1" scope="col">Berat</th>
               <th class="text-header-table col-2" scope="col">Jumlah</th>
               <th class="text-header-table col-2" scope="col">Harga</th>
-              <th class="text-header-table col-3" scope="col">Opsi</th>            
+              <th class="text-header-table col-3" scope="col">Opsi</th>
             </tr>
           </thead>
           <tbody>
@@ -66,7 +66,10 @@
               <?
                 if($item->diambil == 0){
               ?>
-                <a class="btn btn-sm btn-primary" href="<?= ROOT_URL ?>?p=barang&amp;a=take&amp;kode=<?=$item->kode?>">Ambil</a>
+                <a class="btn btn-sm btn-primary" 
+                  href="<?= ROOT_URL ?>?p=barang&amp;a=take&amp;kode=<?=$item->kode?>">
+                  Ambil
+                </a>
               <?
               }
               else{
@@ -78,8 +81,14 @@
               <?              
               }
               ?>
-                <a class="btn btn-sm btn-primary" href="<?= ROOT_URL ?>?p=barang&amp;a=delete&amp;kode=<?=$item->kode?>">Hapus</a>
-                <a class="btn btn-sm btn-warning" href="<?= ROOT_URL ?>?p=barang&amp;a=edit&amp;kode=<?=$item->kode?>">Edit</a>
+                <a class="btn btn-sm btn-primary" 
+                  href="<?= ROOT_URL ?>?p=barang&amp;a=delete&amp;kode=<?=$item->kode?>">
+                  Hapus
+                </a>
+                <a class="btn btn-sm btn-warning" 
+                  href="<?= ROOT_URL ?>?p=barang&amp;a=edit&amp;kode=<?=$item->kode?>">
+                  Edit
+                </a>
               </td>     
             </tr>
             <?
@@ -116,54 +125,9 @@
         </div>
       </div>
 
-      <button type="button" class="btn button-float my-button-float" 
-            data-toggle="modal" data-target="#tambahCucian">
-        +
-      </button>
+      <a href="?p=barang&amp;a=add" class="btn button-float my-button-float">
+        <span> + </span>
+      </a>
     </div>
   </div>
-
-  <div class="modal fade" id="tambahCucian" tabindex="-1" role="dialog"
-        aria-labelledby"tambahPelangganLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="tambahPelangganLabel">
-              Tambah Cucian Masuk
-            </h5>
-            <button type="button" class="close" data-dismiss="modal" 
-                    aria-label="Close">
-              <span aria-hidden="true">&times;</span>            
-            </button>
-        </div>
-        <div class="modal-body">
-        <form action="">
-            <div class="form-group">
-              <label for="kode" class="col-form-label">Kode</label>
-              <input type="text" class="form-control" name="kode" id="kode">
-            </div>
-            <div class="form-group">
-              <label for="jumlah" class="col-form-label">Jumlah</label>
-              <input type="text" class="form-control" name="jumlah" id="jumlah">
-            </div>
-            <div class="form-group">
-              <label for="berat" class="col-form-label">Berat</label>
-              <input type="text" class="form-control" name="berat" id="berat">
-            </div>
-            <div class="form-group">
-              <label for="harga" class="col-form-label">Harga</label>
-              <input type="text" class="form-control" name="harga" id="harga">
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">
-            Close
-          </button>
-          <input type="submit" name="submit" class="btn btn-primary" value="Save">
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
 <? require_once "templates/footer.php"; ?>

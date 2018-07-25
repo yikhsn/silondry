@@ -141,8 +141,8 @@
   background: var(--background-primary-color);  
 }
 
-.ringkasan-inti-header {
-}
+/* .ringkasan-inti-header {
+} */
 
 .ringkasan-inti-title{
   font-size: 14px;
@@ -214,12 +214,12 @@
   padding: 20px;
 }
 
-.latest-act-detail.latest-act-all {
+/* .latest-act-detail.latest-act-all {
   
 }
 
 .latest-act-detail.latest-act-in {
-}
+} */
 
 .latest-act-detail.latest-act-out {
   margin-right: 0;
@@ -320,18 +320,17 @@
 	/* box-shadow: 2px 2px 3px #999; */
 }
 
-.my-button-float{
-	margin-top:10px;
+.button-float span{
+  font-size: 25px;
 }
-
 
 tr{
   padding : 40px;
 }
 
-body {
-  /* background-color: #1D1F20; */
-}
+/* body {
+  background-color: #1D1F20;
+} */
 
 .ringkasan-umum-body{
   padding: 20px;
