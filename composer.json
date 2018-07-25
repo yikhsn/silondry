@@ -1,0 +1,11 @@
+{
+  "name": "yaumil",
+  "description": "yaumil ikhsan source code",
+
+  "autoload": {
+    "psr-4": {
+      "Acme\\": "app/",
+      "Helper\\": "app/Helper"
+    }
+  }
+}
