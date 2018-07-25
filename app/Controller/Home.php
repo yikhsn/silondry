@@ -4,6 +4,7 @@ namespace Acme\Controller;
 use Acme\Engine\Util;
 use Acme\Model\Insight\Insight;
 use Acme\Model\Activities\LatestIn;
+use Acme\Model\Barang;
 use Acme\Model\Activities\LatestAll;
 use Acme\Auth\Session;
 
@@ -20,6 +21,7 @@ class Home
     $this->insight = new Insight;
     $this->latestIn = new latestIn;
     $this->latestAll = new LatestAll;
+    $this->barang = new Barang;
   }
 
   public function index()
@@ -27,6 +29,7 @@ class Home
     if ( !Session::exists('username') )
       header('location: ?p=admin&a=login');
 
+    $this->util->notTaken         = $this->barang->notTaken();
     $this->util->todayInsight     = $this->insight->daily();
     $this->util->thisWeekInsight  = $this->insight->weekly();
     $this->util->latestIn         = $this->latestIn->show(10, 'masuk');

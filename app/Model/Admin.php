@@ -30,7 +30,7 @@ class Admin
   }
 
   // menguji apakah password yang dimasukkan sesuai dengan data di database
-  public function login_user($password, array $fields){
+  public function checkPassword($password, array $fields){
 
     $data = $this->db->getOneBy('pegawai', $fields);
 
@@ -54,16 +54,6 @@ class Admin
     $data = $this->db->getOneBy("pegawai", $id);
     var_dump($data);
     die();
-  }
-
-  public function change_password(array $fields, array $username)
-  {
-    $data = $this->db->getOneBy("pegawai", $username);
-    
-    if ( password_verify( $fields['old_pass'], $data->password ) )
-      return true;
-    else 
-      return false;
   }
 
   public function update_password(array $fields, array $username)

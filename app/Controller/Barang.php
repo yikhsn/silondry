@@ -32,7 +32,7 @@ class Barang
     else
       $this->model->setCurrentPage(1);
    
-    $this->util->barang = $this->model->getData(10); 
+    $this->util->barang = $this->model->getData(10);
 
     $this->util->pages = $this->model->getPages();
     $this->util->nextPage = $this->model->nextPage();

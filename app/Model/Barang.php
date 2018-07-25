@@ -79,6 +79,11 @@ class Barang
     return $this->db->getLimit("barang", $start, $this->limit);
   }
 
+  public function notTaken()
+  {
+    return $this->db->countBy( "barang", array( 'diambil' => 0 ) );
+  }
+
   public function add(array $data)
   {
     return $this->db->add("barang", $data);

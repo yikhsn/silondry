@@ -30,7 +30,7 @@ class Admin
       if( $this->model->cek_nama( array('username' => Input::get('username')) ) )
       {  
         // MENGIRIM DATA HASIL INPUT
-        if( $this->model->login_user(Input::get('password'), array(
+        if( $this->model->checkPassword(Input::get('password'), array(
           'username' => Input::get('username')
         ) ) )
         
@@ -88,8 +88,7 @@ class Admin
 
     if ( Input::get('submit') )
     {  
-      if( $this->model->change_password( 
-        array('old_pass' => Input::get('old_pass')), 
+      if( $this->model->CheckPassword( Input::get('old_pass'), 
         array('username' => $_SESSION['username']) 
       ) )
       {

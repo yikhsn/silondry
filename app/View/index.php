@@ -59,7 +59,7 @@
           </div>
           <div class="barang-belum-diambil">
             <div class="jumlah-belum-diambil">
-              <? /* echo $item->belum_diambil(); */ ?>
+              <?= $this->notTaken; ?>
             </div>
             <div class="belum-diambil-text">
               Cucian belum diambil

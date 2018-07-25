@@ -21,6 +21,22 @@ class CRUD
     return $stmt->rowCount();
   }
 
+  public function countBy($table, array $where)
+  {
+    $sql = sprintf(
+      "SELECT * FROM %s WHERE %s=%s",
+      $table,
+      implode( ", ", array_keys($where) ),
+      ':' . implode( ", :", array_keys($where) )
+    );
+
+    $stmt = $this->db->prepare($sql);
+    
+    $stmt->execute($where);
+    
+    return $stmt->rowCount();
+  }
+
   public function getAll($table)
   {
     $stmt = $this->db->prepare("SELECT * FROM $table");
