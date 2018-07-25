@@ -88,23 +88,27 @@ class Admin
 
     if ( Input::get('submit') )
     {  
-      if( $this->model->change_password( array(
-        'old_pass'      => Input::get('old_pass'),
-        'new_pass'      => Input::get('new_pass'),
-        'confirm_pass'  => Input::get('confirm_pass')
-      ) ) )
+      if( $this->model->change_password( 
+        array('old_pass' => Input::get('old_pass')), 
+        array('username' => $_SESSION['username']) 
+      ) )
       {
-        header('location: ?p=home');
+        if ( Input::get('new_pass') == Input::get('confirm_pass') )
+        {
+          if ($this->model->update_password(
+            array ('password' => password_hash(Input::get('new_pass'), PASSWORD_DEFAULT)),
+            array ('username' => $_SESSION['username'] )
+          ))
+          {
+            die('berhasil mengubah password');
+          }
+        }
       }
       else
       {
         $errors = "Kesalahan mengubah password, periksa dan ulangi lagi!";
       }
     }
-
-    $this->util->user = $this->model->getUser(array(
-                          'username' => $_SESSION['username']
-                        ));
                         
     $this->util->errors = $errors;
     $this->util->getView('change_password');

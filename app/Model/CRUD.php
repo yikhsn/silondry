@@ -103,6 +103,8 @@ class CRUD
       ':' . implode( ", :", array_keys($where) )
     );
 
+    // die($sql);
+
     $stmt = $this->db->prepare($sql);
     
     return $stmt->execute(array_merge($fields, $where));

@@ -56,13 +56,18 @@ class Admin
     die();
   }
 
-  public function change_password(array $fields)
+  public function change_password(array $fields, array $username)
   {
-
+    $data = $this->db->getOneBy("pegawai", $username);
+    
+    if ( password_verify( $fields['old_pass'], $data->password ) )
+      return true;
+    else 
+      return false;
   }
 
-  public function cek_password()
+  public function update_password(array $fields, array $username)
   {
-
+    return $this->db->update("pegawai", $fields, $username);
   }
 }
