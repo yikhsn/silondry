@@ -19,21 +19,18 @@ class Admin
 
   public function login()
   {
-  $errors = array();
+    if( Session::exists('username') )
+      header('location: ?p=home');
 
-  if( Session::exists('username') )
-    header('location: ?p=home');
+    $errors = array();
 
     if ( Input::get('submit') ){
 
-      // MENGUJI APAKAH USERNAME INPUTAN USER ADA DI DATABASE
-      if( $this->model->cek_nama( array('username' => Input::get('username')) ) )
+      $username = array('username' => Input::get('username'));
+      
+      if( $this->model->cek_nama($username) )
       {  
-        // MENGIRIM DATA HASIL INPUT
-        if( $this->model->checkPassword(Input::get('password'), array(
-          'username' => Input::get('username')
-        ) ) )
-        
+        if( $this->model->checkPassword(Input::get('password'), $username) )
         {
           Session::set('username', Input::get('username') );
           header('location: ?p=home');  
@@ -57,15 +54,18 @@ class Admin
 
     if ( Input::get('submit') )
     {  
-      if( $this->model->register_user( array(
+      $data = array(
         'username' => Input::get('username'),
         'password' => password_hash( Input::get('password'), PASSWORD_DEFAULT),
         'id_pegawai' => Input::get('id_pegawai')
-      ) ) )
+      );
+
+      if( $this->model->register_user($data) )
       {
         Session::set('username', Input::get('username'));  
         header('location: ?p=home');
       }
+
       else
         $errors = "Kesalahan saat melakukan register, periksa dan ulangi lagi!";
     }
