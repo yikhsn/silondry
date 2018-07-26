@@ -38,16 +38,11 @@ class Admin
           Session::set('username', Input::get('username') );
           header('location: ?p=home');  
         }
-
         else
-        {
           $errors[] = 'Password salah';
-        }
       }
-      else
-      {
+      else      
         $errors[] = "Username tidak terdaftar";
-      }
     }
     $this->util->errors = $errors;
     $this->util->getView('login');
@@ -72,9 +67,7 @@ class Admin
         header('location: ?p=home');
       }
       else
-      {
         $errors = "Kesalahan saat melakukan register, periksa dan ulangi lagi!";
-      }
     }
 
     $this->util->id_pegawai = $this->model->getNextId();
@@ -99,14 +92,12 @@ class Admin
             array ('username' => $_SESSION['username'] )
           ))
           {
-            header('location: ?p=admin&a=login');
+            header('location: ?p=admin&a=logout');
           }
         }
       }
       else
-      {
         $errors = "Kesalahan mengubah password, periksa dan ulangi lagi!";
-      }
     }
                         
     $this->util->errors = $errors;

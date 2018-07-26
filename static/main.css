@@ -355,7 +355,6 @@ tr{
   transition: height 0.6s ease;
 }
 
-
 /* stylesheet form add and edit data */
 
 .header-form-data{
@@ -376,4 +375,18 @@ tr{
   padding: 10px;
   font-size: 14px;
   color: var(--text-color-secondary);
+}
+
+.auth-page-container{
+  width: 1366px;
+  height: 600px;
+  background: linear-gradient(to right, #016DAD, #0095C0);
+  
+}
+
+.auth-page-box{
+  justify-self: center;
+  height: 300px;
+  width: 600px;
+  background: white;
 }

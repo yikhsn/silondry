@@ -1,0 +1,23 @@
+body{
+  background: linear-gradient(to right, #016DAD, #0095C0);
+}
+
+.form-auth-box{
+  background: white;
+  margin-top: 130px;
+  padding-bottom: 20px;
+}
+
+.card-title{
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.error-detail{
+  list-style: none;
+  color: #555;
+}
+
+.label-form-auth{
+  color: #555;
+}
