@@ -81,21 +81,14 @@ class Admin
 
     if ( Input::get('submit') )
     {  
-      if( $this->model->CheckPassword( Input::get('old_pass'), 
-        array('username' => $_SESSION['username']) 
-      ) )
-      {
+      $pass = array ('password' => password_hash(Input::get('new_pass'), PASSWORD_DEFAULT));
+      $user = array ('username' => $_SESSION['username'] );
+       
+      if( $this->model->CheckPassword( Input::get('old_pass'), $user ) )
         if ( Input::get('new_pass') == Input::get('confirm_pass') )
-        {
-          if ($this->model->update_password(
-            array ('password' => password_hash(Input::get('new_pass'), PASSWORD_DEFAULT)),
-            array ('username' => $_SESSION['username'] )
-          ))
-          {
+          if ( $this->model->update_password( $pass, $user ) )
             header('location: ?p=admin&a=logout');
-          }
-        }
-      }
+
       else
         $errors = "Kesalahan mengubah password, periksa dan ulangi lagi!";
     }
