@@ -39,7 +39,7 @@
               <th class="text-header-table col-1" scope="col">Berat</th>
               <th class="text-header-table col-2" scope="col">Jumlah</th>
               <th class="text-header-table col-2" scope="col">Harga</th>
-              <th class="text-header-table col-3" scope="col">Opsi</th>
+              <th class="text-header-table col-2" scope="col">Opsi</th>
             </tr>
           </thead>
           <tbody>

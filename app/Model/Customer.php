@@ -14,6 +14,7 @@ class Customer
   public function __construct()
   {
     $this->db = new CRUD;
+    $this->setTotalRecord();
   }
 
   public function getNextId()
@@ -69,7 +70,6 @@ class Customer
   public function getData($limit)
   {
     $this->setLimit($limit);
-    $this->setTotalRecord();
 
     $start = 0;
 

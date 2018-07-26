@@ -25,8 +25,8 @@ class Customer
     if ( !Session::exists('username') )
       header('location: ?p=admin&a=login');
 
-    if ( Input::get('kode') )
-      $this->model->setCurrentPage( Input::get('kode') );
+    if ( Input::get('page') )
+      $this->model->setCurrentPage( Input::get('page') );
     else
       $this->model->setCurrentPage(1);
     

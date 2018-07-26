@@ -13,7 +13,6 @@ class Barang
   public function __construct()
   {
     $this->db = new CRUD;
-    
     $this->setTotalRecord();
   }
 

@@ -32,7 +32,16 @@
             <li class="menu-item-panel">
               <span class="menu-link-panel">Pelanggan</span>
             </li>
-          </a>  
+          </a>
+          <a href="?p=admin&amp;a=change">
+            <li class="menu-item-panel">
+              <span class="menu-link-panel">Ubah Password</span>
+            </li>
+          </a><a href="?p=admin&amp;a=logout">
+            <li class="menu-item-panel">
+              <span class="menu-link-panel">Logout</span>
+            </li>
+          </a>
         </ul>
       </div>
     </div>
@@ -49,13 +58,7 @@
         <div class="collapse navbar-collapse" id="navbar-text">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="?p=admin&amp;a=login">Login</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="?p=admin&amp;a=register">Register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="?p=admin&amp;a=logout">Logout</a>
             </li>
           </ul>
           <span class="navbar-text">Hei, Selamat Datang</span>

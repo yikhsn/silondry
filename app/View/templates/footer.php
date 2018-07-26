@@ -1,8 +1,10 @@
         </div>
+        <div class="footer-container">
+            <div class="copyright">&copy; 2018 | SILONDRY</div>      
+        </div>
       </div>
     </div>
   <footer>
-    <p>&copy; 2018 | SI LAUNDRY</p>
   </footer>
 
   <script src="static/bootstrap/js/jquery-3.2.1.min.js"></script>

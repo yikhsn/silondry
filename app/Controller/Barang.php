@@ -21,7 +21,6 @@ class Barang
     $this->insight = new Insight;
   }
 
-  /********** Front End *************/
   public function index()
   {
     if ( !Session::exists('username') )
@@ -37,7 +36,6 @@ class Barang
     $this->util->pages = $this->model->getPages();
     $this->util->nextPage = $this->model->nextPage();
     $this->util->prevPage = $this->model->prevPage();
-    // $this->util->isActive = $this->model->isActive($page);
 
     $this->util->todayInsight = $this->insight->daily();
     $this->util->getView('barang');

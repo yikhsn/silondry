@@ -100,5 +100,7 @@
       <a href="?p=customer&amp;a=add" class="btn button-float my-button-float">
         <span> + </span>
       </a>
+    </div>
+  </div>
 
 <? require_once "templates/footer.php"; ?>

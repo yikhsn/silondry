@@ -99,7 +99,7 @@ class Admin
             array ('username' => $_SESSION['username'] )
           ))
           {
-            die('berhasil mengubah password');
+            header('location: ?p=admin&a=login');
           }
         }
       }
