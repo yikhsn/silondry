@@ -31,7 +31,6 @@ class CRUD
     );
 
     $stmt = $this->db->prepare($sql);
-    
     $stmt->execute($where);
     
     return $stmt->rowCount();
@@ -63,12 +62,27 @@ class CRUD
     return $stmt->fetchAll(PDO::FETCH_OBJ);
   }
 
-  public function getLimitWhere($table, $limit, $order)
+  public function getLimitBy($table, $limit, $order)
   {
-    $sql = "SELECT * FROM $table ORDER BY $order DESC LIMIT $limit";
-    
-    $stmt = $this->db->query($sql);
+    $stmt = $this->db->query("SELECT * FROM $table ORDER BY $order DESC LIMIT $limit");
     $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  public function getLimitWhere($table, $where, $limit, $order)
+  {
+    $sql = sprintf(
+      "SELECT * FROM %s WHERE %s = %s ORDER BY %s DESC LIMIT %s",
+      $table,
+      implode( ", ", array_keys($where) ),
+      ':' . implode( ", :", array_keys($where) ),
+      $order,
+      $limit
+    );
+    
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute($where);
 
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
@@ -83,7 +97,6 @@ class CRUD
     );
 
     $stmt = $this->db->prepare($sql);
-    
     $stmt->execute($where);
     
     return $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -99,7 +112,6 @@ class CRUD
     );
 
     $stmt = $this->db->prepare($sql);
-    
     $stmt->execute($where);
     
     return $stmt->fetch(PDO::FETCH_OBJ);
@@ -118,9 +130,7 @@ class CRUD
       implode( ", ", array_keys($where) ),
       ':' . implode( ", :", array_keys($where) )
     );
-
-    // die($sql);
-
+    
     $stmt = $this->db->prepare($sql);
     
     return $stmt->execute(array_merge($fields, $where));

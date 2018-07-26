@@ -32,8 +32,8 @@ class Home
     $this->util->notTaken         = $this->barang->notTaken();
     $this->util->todayInsight     = $this->insight->daily();
     $this->util->thisWeekInsight  = $this->insight->weekly();
-    $this->util->latestIn         = $this->latestIn->show(10, 'masuk');
-    $this->util->latestOut        = $this->latestIn->show(10, 'keluar');
+    $this->util->latestIn         = $this->latestIn->in(10, 'masuk');
+    $this->util->latestOut        = $this->latestIn->out(10, 'keluar');
     $this->util->latestAll        = $this->latestAll->show(10);
     $this->util->getView('index');
   }

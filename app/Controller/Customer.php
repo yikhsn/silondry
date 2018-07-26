@@ -19,7 +19,6 @@ class Customer
     $this->model = new Model;
   }
 
-  /********** Front End *************/
   public function index()
   {
     if ( !Session::exists('username') )
@@ -53,7 +52,7 @@ class Customer
 
     if ( Input::get('submit') )
     {      
-      $aData = array(
+      $data = array(
         'id_pelanggan'    => Input::get('id_pelanggan'),
         'nama'            => Input::get('nama'),
         'alamat'          => Input::get('alamat'),
@@ -61,7 +60,7 @@ class Customer
         'nomor_identitas' => Input::get('nomor_identitas')
       );
 
-      if ( $this->model->add($aData))
+      if ( $this->model->add($data))
         header('location: ?p=customer');
       else
         die("Kesalahan saat memasukkan data, periksa dan ulangi lagi!");
@@ -75,25 +74,24 @@ class Customer
     if ( !Session::exists('username') )
       header('location: ?p=admin&a=login');
 
+    $id = array ('id_pelanggan' => Input::get('id_pelanggan'));
+
     if ( Input::get('edit_submit') )
     {
-      $aData = array(
+      $data = array(
         'nama'            => Input::get('nama'),
         'alamat'          => Input::get('alamat'),
         'nomor_telpon'    => Input::get('nomor_telpon'),
         'nomor_identitas' => Input::get('nomor_identitas')
       );
     
-      if ($this->model->update($aData, array('id_pelanggan' => Input::get('id_pelanggan') ) ) )
+      if ($this->model->update($data, $id) )
         header('location: ?p=customer');
       else
-        die("Kesalahan saat memasukkan data, periksa dan ulangi lagi");
+        die("Kesalahan saat memasukkan data, ulangi lagi");
     }
 
-    $this->util->customer = $this->model->getById(array (
-      'id_pelanggan' => Input::get('id_pelanggan') 
-    ));
-
+    $this->util->customer = $this->model->getById($id);
     $this->util->getView('edit_customer');
   }
 

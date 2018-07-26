@@ -11,8 +11,8 @@ class LatestAll{
   }
 
   public function show($limit){
-    $latestIn   = $this->activities->show($limit, 'masuk');
-    $latestOut  = $this->activities->show($limit, 'keluar');
+    $latestIn   = $this->activities->in($limit, 'masuk');
+    $latestOut  = $this->activities->out($limit, 'keluar');
     
     $array = array_merge($latestIn, $latestOut);
 

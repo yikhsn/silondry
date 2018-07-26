@@ -28,7 +28,7 @@ class Admin
 
       $username = array('username' => Input::get('username'));
       
-      if( $this->model->cek_nama($username) )
+      if( $this->model->checkName($username) )
       {  
         if( $this->model->checkPassword(Input::get('password'), $username) )
         {
@@ -60,7 +60,7 @@ class Admin
         'id_pegawai' => Input::get('id_pegawai')
       );
 
-      if( $this->model->register_user($data) )
+      if( $this->model->registerUser($data) )
       {
         Session::set('username', Input::get('username'));  
         header('location: ?p=home');
@@ -84,9 +84,9 @@ class Admin
       $pass = array ('password' => password_hash(Input::get('new_pass'), PASSWORD_DEFAULT));
       $user = array ('username' => $_SESSION['username'] );
        
-      if( $this->model->CheckPassword( Input::get('old_pass'), $user ) )
+      if( $this->model->checkPassword( Input::get('old_pass'), $user ) )
         if ( Input::get('new_pass') == Input::get('confirm_pass') )
-          if ( $this->model->update_password( $pass, $user ) )
+          if ( $this->model->updatePassword( $pass, $user ) )
             header('location: ?p=admin&a=logout');
 
       else

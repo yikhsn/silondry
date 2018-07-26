@@ -1,5 +1,4 @@
 <?php
-
 namespace Acme\Engine;
 
 use ReflectionClass;

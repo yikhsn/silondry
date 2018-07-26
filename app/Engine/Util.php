@@ -1,26 +1,14 @@
 <?php
-
 namespace Acme\Engine;
 
 class Util
 {
-  public function getView($viewName)
-  {
-    $this->_get($viewName, 'View');
-  }
-
-  public function getModel($modelName)
-  {
-    $this->_get($modelName, 'Model');
-  }
-
   /**
-   * This method is useful in order to avoid the duplication of code
-   * Because getView and getModel have the exact same function 
+   * method to load view file
    */
-  private function _get($fileName, $type)
+  public function getView($view)
   {
-    $fullPath = ROOT_PATH . 'app/' .  $type . '/' . $fileName . '.php';
+    $fullPath = ROOT_PATH . 'app/View/' . $view . '.php';
     if (is_file($fullPath))
       require $fullPath;
     else
@@ -28,9 +16,7 @@ class Util
   }
 
   /**
-   * set variables for the template views
-   * 
-   * @return void
+   * set variables for the view
    */
   public function __set($key, $val){
     $this->$key = $val; 

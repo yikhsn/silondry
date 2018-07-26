@@ -58,7 +58,7 @@ class Barang
     {
       $this->util->barang = $this->model->getData(10);
 
-      $aData = array(
+      $data = array(
         'kode'    => Input::get('kode'),
         'jumlah'  => Input::get('jumlah'),
         'berat'   => Input::get('berat'),
@@ -66,7 +66,7 @@ class Barang
         'masuk'   => date('Y-m-d H:i:s')
       );
 
-      if ( $this->model->add($aData) )
+      if ( $this->model->add($data) )
         header( "location: ?p=barang" );
       else
         die( "Whoooops! An error has occured! Please try again." );
@@ -82,20 +82,19 @@ class Barang
 
     if ( Input::get('edit_submit') )
     {
-      $aData = array(
+      $data = array(
         'jumlah' => Input::get('jumlah'),
         'berat' => Input::get('berat'),
         'harga' => Input::get('harga')
       );
 
-      if ($this->model->update($aData, array( "kode" => Input::get("kode") ) ) )
+      if ($this->model->update($data, array( "kode" => Input::get("kode") ) ) )
         header("location: ?p=barang");
       else
         die("WHoops! An error has occures! Please try again later");
     }
 
     $this->util->data = $this->model->getById(array ( 'kode' => $_GET['kode'] ) );
-
     $this->util->getView('edit_item');
   }
 

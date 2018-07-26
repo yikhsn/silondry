@@ -1,5 +1,4 @@
 <?php
-
 namespace Acme\Model;
 
 use Acme\Model\CRUD;
@@ -25,13 +24,14 @@ class Admin
     return $this->db->getMaxColumn("pegawai", "id_pegawai");
   }
 
-  public function register_user( $fields = array() ){
+  public function registerUser( $fields = array() )
+  {
     return $this->db->add("pegawai", $fields);
   }
 
   // menguji apakah password yang dimasukkan sesuai dengan data di database
-  public function checkPassword($password, array $fields){
-
+  public function checkPassword($password, array $fields)
+  {
     $data = $this->db->getOneBy('pegawai', $fields);
 
     if( password_verify($password, $data->password ))
@@ -41,15 +41,15 @@ class Admin
   }
 
   // menguji apapah username yang dimasukkan ada di database
-  public function cek_nama(array $fields){
-
+  public function checkName(array $fields)
+  {
     $data = (array) ($this->db->getOneBy("pegawai", $fields));
 
     if( !empty($data) ) return true;
     else return false;
   }
 
-  public function update_password(array $fields, array $username)
+  public function updatePassword(array $fields, array $username)
   {
     return $this->db->update("pegawai", $fields, $username);
   }

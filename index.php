@@ -13,8 +13,6 @@ define('ROOT_PATH', __DIR__ . '/');
 
 try
 {
-  // require ROOT_PATH . 'Engine/Loader.php';
-  // Engine\Loader::getInstance()->init(); //load necessary class
   $params = ['ctrl' => ( !empty($_GET['p']) ? $_GET['p'] : 'home'), 'act' => (!empty($_GET['a']) ? $_GET['a'] : 'index')];
   Engine\Router::run($params);
 }

@@ -1,11 +1,7 @@
 <?php
-
 namespace Acme\Engine;
 
 use Acme\Engine\Pattern\Singleton;
-
-require_once __DIR__  . '/Pattern/Base.trait.php';
-require_once __DIR__  . '/Pattern/Singleton.trait.php';
 
 class Loader
 {
