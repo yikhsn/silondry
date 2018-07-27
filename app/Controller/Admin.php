@@ -25,7 +25,7 @@ class Admin
     $errors = array();
 
     if ( Input::get('submit') ){
-
+      
       $username = array('username' => Input::get('username'));
       
       if( $this->model->checkName($username) )

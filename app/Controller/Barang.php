@@ -32,12 +32,11 @@ class Barang
       $this->model->setCurrentPage(1);
    
     $this->util->barang = $this->model->getData(10);
-
     $this->util->pages = $this->model->getPages();
     $this->util->nextPage = $this->model->nextPage();
     $this->util->prevPage = $this->model->prevPage();
-
     $this->util->todayInsight = $this->insight->daily();
+
     $this->util->getView('barang');
   }
 

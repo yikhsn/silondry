@@ -34,10 +34,7 @@ class Admin
   {
     $data = $this->db->getOneBy('pegawai', $fields);
 
-    if( password_verify($password, $data->password ))
-      return true;
-    else
-      return false;
+    return ( password_verify($password, $data->password ) ) ? true : false;
   }
 
   // menguji apapah username yang dimasukkan ada di database
@@ -45,8 +42,7 @@ class Admin
   {
     $data = (array) ($this->db->getOneBy("pegawai", $fields));
 
-    if( !empty($data) ) return true;
-    else return false;
+    return ( !empty($data) ) ? true : false;
   }
 
   public function updatePassword(array $fields, array $username)

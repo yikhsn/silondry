@@ -3,9 +3,8 @@ namespace Acme\Controller;
 
 use Acme\Engine\Util;
 use Acme\Model\Insight\Insight;
-use Acme\Model\Activities\LatestIn;
+use Acme\Model\Activities\{LatestIn, LatestAll};
 use Acme\Model\Barang;
-use Acme\Model\Activities\LatestAll;
 use Acme\Auth\Session;
 
 class Home

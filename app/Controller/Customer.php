@@ -63,7 +63,7 @@ class Customer
       if ( $this->model->add($data))
         header('location: ?p=customer');
       else
-        die("Kesalahan saat memasukkan data, periksa dan ulangi lagi!");
+        die("Kesalahan saat memasukkan data, ulangi lagi!");
     }
     $this->util->id_pelanggan = $this->model->getNextId();
     $this->util->getView('add_customer');
@@ -100,10 +100,10 @@ class Customer
     if ( !Session::exists('username') )
       header('location: ?p=admin&a=login');
 
-    if ( $this->model->delete( array( 
-      'id_pelanggan' => $_GET['id_pelanggan'] 
-    ) ) )
-      return header('location:' . ROOT_URL . '?p=customer');
+    $id = array( 'id_pelanggan' => Input::get('id_pelanggan') );
+
+    if ( $this->model->delete($id) )
+      header('location: ?p=customer');
     else
       exit('Kesalahan saat menghapus data, periksa dan ulangi lagi');
   }

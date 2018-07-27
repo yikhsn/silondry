@@ -7,9 +7,9 @@ use PDO;
 class Customer
 {
   protected $db,
-  $totalRecord,
-  $currentPage,
-  $limit;  
+            $totalRecord,
+            $currentPage,
+            $limit;  
 
   public function __construct()
   {

@@ -24,8 +24,6 @@ class Router
         call_user_func( array($oCtrl, 'notFound') );
     }
     else
-      {
       call_user_func( array (new $sDefaultCtrl, 'notFound') );
-      }
-    }
+  }
 }
