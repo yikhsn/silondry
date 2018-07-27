@@ -7,11 +7,18 @@ class Admin
 {
   private $db;
 
+  /**
+   * the constructor method would create an instance of the crud model
+   */
   public function __construct()
   {
     $this->db = new CRUD;
   }
 
+  /**
+   * method to count the next id would be given to the next data 
+   * @return string id_pegawai
+   */
   public function getNextId()
   {
     return "PGW" . sprintf( '%03s', (int) substr( 
@@ -19,17 +26,30 @@ class Admin
     );
   }
 
+  /**
+   * method to get the last id by getting the max data id in the database
+   * @return string id_pegawai
+   */
   public function getMaxId()
   {
     return $this->db->getMaxColumn("pegawai", "id_pegawai");
   }
 
+  /**
+   * method to register the new user by pass it to the db model to input it
+   * @param array assoc data
+   * @return boolean
+   */
   public function registerUser( $fields = array() )
   {
     return $this->db->add("pegawai", $fields);
   }
 
-  // menguji apakah password yang dimasukkan sesuai dengan data di database
+  /**
+   * method to verify the input password same with the data
+   * @param string password, @param array assoc data
+   * @return boolean 
+   */
   public function checkPassword($password, array $fields)
   {
     $data = $this->db->getOneBy('pegawai', $fields);
@@ -37,7 +57,11 @@ class Admin
     return ( password_verify($password, $data->password ) ) ? true : false;
   }
 
-  // menguji apapah username yang dimasukkan ada di database
+  /**
+   * method to verify the input username from user is exist in the database
+   * @param array assoc data
+   * @return boolean
+   */
   public function checkName(array $fields)
   {
     $data = (array) ($this->db->getOneBy("pegawai", $fields));
@@ -45,6 +69,11 @@ class Admin
     return ( !empty($data) ) ? true : false;
   }
 
+  /**
+   * method to update the existing password of an username
+   * @param array assoc data, @param array assoc username
+   * @return boolean
+   */
   public function updatePassword(array $fields, array $username)
   {
     return $this->db->update("pegawai", $fields, $username);

@@ -11,6 +11,11 @@ class LatestIn
     $this->db = new CRUD;
   }
 
+  /**
+   * method to show the latest activity of come in item
+   * @param int limit, @param string type
+   * @return array assoc  
+   */
   public function in($limit, $type)
   {
     $data = $this->db->getLimitBy( "barang", $limit, $type);
@@ -18,6 +23,11 @@ class LatestIn
     return $this->remapData($data, $type);
   }
 
+  /**
+   * method to get the latest activity of come out item
+   * @param int limit, @param string type
+   * @return array assoc
+   */
   public function out($limit, $type)
   {
     $cond = array( 'diambil' => 1);
@@ -27,6 +37,11 @@ class LatestIn
     return $this->remapData($data, $type);
   }
 
+  /**
+   * method to remap data of assoc array into format that needed
+   * @param array assoc data, @param string type
+   * @return array assoc
+   */
   private function remapData(array $array, $type)
   {
     $this->type = $type;

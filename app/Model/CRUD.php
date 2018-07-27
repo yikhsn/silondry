@@ -44,6 +44,36 @@ class CRUD
     return $stmt->fetchAll(PDO::FETCH_OBJ);
   }
 
+  public function getBy($table, array $where)
+  {
+    $sql = sprintf(
+      "SELECT * FROM %s WHERE %s=%s",
+      $table,
+      implode( ", ", array_keys($where) ),
+      ':' . implode( ", :", array_keys($where) )
+    );
+
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute($where);
+    
+    return $stmt->fetchAll(PDO::FETCH_OBJ);
+  }
+
+  public function getOneBy($table, array $where)
+  {
+    $sql = sprintf(
+      "SELECT * FROM %s WHERE %s=%s;",
+      $table,
+      implode( ", ", array_keys($where) ),
+      ':' . implode( ", :", array_keys($where) )
+    );
+
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute($where);
+    
+    return $stmt->fetch(PDO::FETCH_OBJ);
+  }
+
   public function getMaxColumn($table, $column)
   {
     $stmt = $this->db->prepare("SELECT max($column) as maxColumn FROM $table");
@@ -85,36 +115,6 @@ class CRUD
     $stmt->execute($where);
 
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
-  }
-
-  public function getBy($table, array $where)
-  {
-    $sql = sprintf(
-      "SELECT * FROM %s WHERE %s=%s",
-      $table,
-      implode( ", ", array_keys($where) ),
-      ':' . implode( ", :", array_keys($where) )
-    );
-
-    $stmt = $this->db->prepare($sql);
-    $stmt->execute($where);
-    
-    return $stmt->fetchAll(PDO::FETCH_OBJ);
-  }
-
-  public function getOneBy($table, array $where)
-  {
-    $sql = sprintf(
-      "SELECT * FROM %s WHERE %s=%s;",
-      $table,
-      implode( ", ", array_keys($where) ),
-      ':' . implode( ", :", array_keys($where) )
-    );
-
-    $stmt = $this->db->prepare($sql);
-    $stmt->execute($where);
-    
-    return $stmt->fetch(PDO::FETCH_OBJ);
   }
 
   public function update($table, array $fields, array $where)

@@ -85,7 +85,9 @@ class Admin
       $user = array ('username' => $_SESSION['username'] );
        
       if( $this->model->checkPassword( Input::get('old_pass'), $user ) )
+
         if ( Input::get('new_pass') == Input::get('confirm_pass') )
+        
           if ( $this->model->updatePassword( $pass, $user ) )
             header('location: ?p=admin&a=logout');
 

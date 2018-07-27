@@ -10,6 +10,11 @@ class LatestAll{
     $this->activities = new LatestIn;
   }
 
+  /**
+   * method to get all the activity on come in and come out item
+   * @param int limit
+   * @return array assoc
+   */
   public function show($limit){
     $latestIn   = $this->activities->in($limit, 'masuk');
     $latestOut  = $this->activities->out($limit, 'keluar');
