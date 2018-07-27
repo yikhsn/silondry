@@ -11,6 +11,11 @@ class Home
 {
   protected $util, $model;
 
+  /**
+   * the constructor method 
+   * load and define all the instances of model and engine that needed
+   * start session 
+   */
   public function __construct()
   {
     if (empty($_SESSION))
@@ -23,6 +28,10 @@ class Home
     $this->barang = new Barang;
   }
 
+  /**
+   * index page for the index app, will show the dashboard page app
+   * @return View index
+   */
   public function index()
   {
     if ( !Session::exists('username') )
@@ -37,11 +46,15 @@ class Home
     $this->util->getView('index');
   }
 
+  /**
+   * page to return for the user who accesing not available url
+   * @return View not_found
+   */
   public function notFound()
   {
     if ( !Session::exists('username') )
       header('location: ?p=admin&a=login');
 
-    exit('Halaman yang anda cari tidak ditemukan');
+    $this->util->getView('index');
   }
 }

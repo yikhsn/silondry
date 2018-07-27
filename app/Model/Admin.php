@@ -47,7 +47,8 @@ class Admin
 
   /**
    * method to verify the input password same with the data
-   * @param string password, @param array assoc data
+   * @param string password
+   * @param array assoc data
    * @return boolean 
    */
   public function checkPassword($password, array $fields)
@@ -71,7 +72,8 @@ class Admin
 
   /**
    * method to update the existing password of an username
-   * @param array assoc data, @param array assoc username
+   * @param array assoc data
+   * @param array assoc username
    * @return boolean
    */
   public function updatePassword(array $fields, array $username)

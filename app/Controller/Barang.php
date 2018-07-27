@@ -11,6 +11,11 @@ class Barang
 {
   protected $util, $model;
 
+    /**
+   * the constructor method 
+   * load and define all the instances of model and engine that needed
+   * start session 
+   */
   public function __construct()
   {
     if (empty($_SESSION))
@@ -21,6 +26,10 @@ class Barang
     $this->insight = new Insight;
   }
 
+  /**
+   * the index page of the item page, show list of the item
+   * @return View barang
+   */
   public function index()
   {
     if ( !Session::exists('username') )
@@ -40,14 +49,10 @@ class Barang
     $this->util->getView('barang');
   }
 
-  public function notFound()
-  {
-    if ( !Session::exists('username') )
-      header('location: ?p=admin&a=login');
-
-    $this->util->getView('not_found');
-  }
-
+  /**
+   * page to add new item into database
+   * @return View add_barang
+   */
   public function add()
   {
     if ( !Session::exists('username') )
@@ -74,6 +79,10 @@ class Barang
     $this->util->getView( 'add_item' );
   }
 
+  /**
+   * page for edit/change the existing data
+   * @return View edit_barang
+   */
   public function edit()
   {
     if ( !Session::exists('username') )
@@ -97,6 +106,10 @@ class Barang
     $this->util->getView('edit_item');
   }
 
+  /**
+   * page for change status of the item from not taken into taken
+   * @return null, will redirect it into index page of item page
+   */
   public function take()
   {
     if ( !Session::exists('username') )
@@ -108,6 +121,10 @@ class Barang
       exit('Kesalahan saat memasukkan data');
   }
 
+  /**
+   * page for deleting the existing item on database
+   * @return null, will redirect it into the index page of item page
+   */
   public function delete()
   {
     if ( !Session::exists('username') )
@@ -117,5 +134,17 @@ class Barang
       return header('location:' . ROOT_URL . '?p=barang');
     else
       exit('Kesalahan saat menghapus data');
+  }
+
+   /**
+   * page to return for the user who accesing not available url
+   * @return View not_found
+   */
+  public function notFound()
+  {
+    if ( !Session::exists('username') )
+      header('location: ?p=admin&a=login');
+
+    $this->util->getView('index');
   }
 }

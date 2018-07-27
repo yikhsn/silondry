@@ -10,6 +10,11 @@ class Customer
 {
   protected $util, $model;
 
+  /**
+   * the constructor method 
+   * load and define all the instances of model and engine that needed
+   * start session 
+   */
   public function __construct()
   {
     if (empty($_SESSION))
@@ -19,6 +24,10 @@ class Customer
     $this->model = new Model;
   }
 
+  /**
+   * the index page of the customer page, will show the customer list
+   * @return View customer
+   */
   public function index()
   {
     if ( !Session::exists('username') )
@@ -37,14 +46,10 @@ class Customer
     $this->util->getView('customer');
   }
 
-  public function notFound()
-  {
-    if ( !Session::exists('username') )
-      header('location: ?p=admin&a=login');
-
-    $this->util->getView('not_found');
-  } 
-
+  /**
+   * page for adding a new customer data into database
+   * @return View add_customer
+   */
   public function add()
   {
     if ( !Session::exists('username') )
@@ -69,6 +74,10 @@ class Customer
     $this->util->getView('add_customer');
   }
 
+  /**
+   * page for editing the existing customer form database
+   * @return View edit_customer
+   */
   public function edit()
   {
     if ( !Session::exists('username') )
@@ -95,6 +104,10 @@ class Customer
     $this->util->getView('edit_customer');
   }
 
+  /**
+   * page for deleting the existing customer in the database
+   * @return null, will redirect user to index page
+   */
   public function delete()
   {
     if ( !Session::exists('username') )
@@ -106,5 +119,17 @@ class Customer
       header('location: ?p=customer');
     else
       exit('Kesalahan saat menghapus data, periksa dan ulangi lagi');
+  }
+
+  /**
+   * page to return for the user who accesing not available url
+   * @return View not_found
+   */
+  public function notFound()
+  {
+    if ( !Session::exists('username') )
+      header('location: ?p=admin&a=login');
+
+    $this->util->getView('index');
   }
 }

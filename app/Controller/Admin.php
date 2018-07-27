@@ -8,6 +8,11 @@ use Helper\Input;
 
 class Admin
 {
+    /**
+   * the constructor method 
+   * load and define all the instances of model and engine that needed
+   * start session 
+   */
   public function __construct()
   {
     if (empty($_SESSION))
@@ -17,6 +22,10 @@ class Admin
     $this->model = new Model;
   }
 
+  /**
+   * login into the app
+   * @return View login
+   */
   public function login()
   {
     if( Session::exists('username') )
@@ -45,6 +54,10 @@ class Admin
     $this->util->getView('login');
   }
 
+  /**
+   * registering the new user to the app
+   * @return View register
+   */
   public function register()
   {
     if( Session::exists('username') )
@@ -75,6 +88,10 @@ class Admin
     $this->util->getView('register');
   }
 
+  /**
+   * change password of the existing and active session user
+   * @return View change_password
+   */
   public function change()
   {
     $errors = array();    
@@ -87,7 +104,7 @@ class Admin
       if( $this->model->checkPassword( Input::get('old_pass'), $user ) )
 
         if ( Input::get('new_pass') == Input::get('confirm_pass') )
-        
+
           if ( $this->model->updatePassword( $pass, $user ) )
             header('location: ?p=admin&a=logout');
 
@@ -99,6 +116,9 @@ class Admin
     $this->util->getView('change_password');
   }
 
+  /**
+   * logout and and destroy session of the the logging in user
+   */
   public function logout()
   {
     if ( !Session::exists('username') )
@@ -108,8 +128,15 @@ class Admin
     header('location: ?p=admin&a=login');
   }
 
+  /**
+   * page to return for the user who accesing not available url
+   * @return View not_found
+   */
   public function notFound()
   {
-    exit('Halaman yang anda cari tidak ada');
+    if ( !Session::exists('username') )
+      header('location: ?p=admin&a=login');
+
+    $this->util->getView('index');
   }
 }

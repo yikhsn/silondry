@@ -8,11 +8,19 @@ class CRUD
 {
   protected $db;
 
+  /**
+   * constructor method to create instance from the database class
+   */
   public function __construct()
   {
     $this->db = new Database;
   }
 
+  /**
+   * method to count total row in the table
+   * @param string table
+   * @return int total row
+   */
   public function countAll($table)
   {
     $stmt = $this->db->prepare("SELECT * FROM $table");
@@ -21,6 +29,12 @@ class CRUD
     return $stmt->rowCount();
   }
 
+  /**
+   * method to count data with the specific condititon
+   * @param string table
+   * @param array assoc condition
+   * @return int total row
+   */
   public function countBy($table, array $where)
   {
     $sql = sprintf(
@@ -36,6 +50,11 @@ class CRUD
     return $stmt->rowCount();
   }
 
+  /**
+   * method to get all the data form the table
+   * @param string table
+   * @return object data
+   */
   public function getAll($table)
   {
     $stmt = $this->db->prepare("SELECT * FROM $table");
@@ -44,6 +63,12 @@ class CRUD
     return $stmt->fetchAll(PDO::FETCH_OBJ);
   }
 
+  /**
+   * method to get the data with the specific condition
+   * @param string table
+   * @param array condition
+   * @return object data
+   */
   public function getBy($table, array $where)
   {
     $sql = sprintf(
@@ -59,6 +84,12 @@ class CRUD
     return $stmt->fetchAll(PDO::FETCH_OBJ);
   }
 
+  /**
+   * method to get the only one data with the specific condition
+   * @param string table
+   * @param array condition
+   * @return object one data
+   */
   public function getOneBy($table, array $where)
   {
     $sql = sprintf(
@@ -74,6 +105,12 @@ class CRUD
     return $stmt->fetch(PDO::FETCH_OBJ);
   }
 
+  /**
+   * method to get the maximal value on the specific column
+   * @param string table
+   * @param string column
+   * @return object data
+   */
   public function getMaxColumn($table, $column)
   {
     $stmt = $this->db->prepare("SELECT max($column) as maxColumn FROM $table");
@@ -82,6 +119,13 @@ class CRUD
     return $stmt->fetch(PDO::FETCH_OBJ);
   }
 
+  /**
+   * method to get data by limit and offset value is set
+   * @param string table
+   * @param int offset
+   * @param int limit
+   * @return object data
+   */
   public function getLimit($table, $offset, $limit)
   {
     $stmt = $this->db->prepare("SELECT * FROM $table LIMIT :offset, :limit");
@@ -92,6 +136,13 @@ class CRUD
     return $stmt->fetchAll(PDO::FETCH_OBJ);
   }
 
+  /**
+   * method to get data with limit and order it base on specific column
+   * @param string table
+   * @param int limit
+   * @param string colum to order
+   * @return object data
+   */
   public function getLimitBy($table, $limit, $order)
   {
     $stmt = $this->db->query("SELECT * FROM $table ORDER BY $order DESC LIMIT $limit");
@@ -99,8 +150,16 @@ class CRUD
 
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
-
-  public function getLimitWhere($table, $where, $limit, $order)
+  
+  /**
+   * method to get data with limit in and order by specific column
+   * @param string table
+   * @param array condition
+   * @param int limit
+   * @param string order
+   * @return object data   
+   */
+  public function getLimitWhere($table, array $where, $limit, $order)
   {
     $sql = sprintf(
       "SELECT * FROM %s WHERE %s = %s ORDER BY %s DESC LIMIT %s",
@@ -117,6 +176,13 @@ class CRUD
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  /**
+   * method to update/change the existing data in the database
+   * @param string table
+   * @param array assoc data
+   * @param array assoc where
+   * @return boolean
+   */
   public function update($table, array $fields, array $where)
   {
     foreach ( $fields as $key=>$values ){
@@ -136,6 +202,12 @@ class CRUD
     return $stmt->execute(array_merge($fields, $where));
   }
 
+  /**
+   * method to add new data into the table
+   * @param string table
+   * @param array assoc data
+   * @return boolean
+   */
   public function add($table, array $fields)
   {
     $sql = sprintf(
@@ -150,6 +222,12 @@ class CRUD
     return $stmt->execute($fields);
   }
 
+  /**
+   * method to delele data in table
+   * @param string table
+   * @param array assoc data
+   * @return boolean
+   */
   public function delete($table, array $fields)
   {
     $sql = sprintf(

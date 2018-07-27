@@ -105,7 +105,7 @@ class Barang
 
   /**
    * method to get data with limit
-   * @param int 
+   * @param int limit
    * @return array obj
    */
   public function getData($limit)
@@ -131,7 +131,7 @@ class Barang
 
   /**
    * method to add new item into the database item
-   * @param array assoc
+   * @param array assoc data
    * @return boolean
    */
   public function add(array $data)
@@ -141,7 +141,7 @@ class Barang
 
   /**
    * method to get the data by the specific code/id
-   * @param array assoc
+   * @param array assoc kode
    * @return array obj
    */
   public function getById(array $kode)
@@ -151,7 +151,8 @@ class Barang
 
   /**
    * method to update/change the existing data
-   * @param array assoc, @param array assoc
+   * @param array assoc data
+   * @param array assoc column
    * @return array obj
    */
   public function update(array $data, array $where)
@@ -161,7 +162,7 @@ class Barang
 
   /**
    * method to delete data from the existing data in the database
-   * @param array assoc
+   * @param array assoc kode
    * @return boolean
    */
   public function delete(array $kode)
