@@ -88,11 +88,11 @@
             ?>
              <li class="list-act">
                 <span>
-                  <img class="icon-in-out"src="assets/img/in-blue.png" alt="">
-                  <?= $latest['aktivitas'] ?> - Cucian
+                  <img class="icon-in-out"src="static/img/<?=$latest['keterangan']?>.png" alt="">
+                  <?= $latest['waktu'] ?> - Cucian
                   <span class="barang-in-out">
                     <?= '"' . $latest['kode'] . '"'?>
-                  </span> . <?= $latest['keterangan'] ?>
+                  </span> <?= $latest['keterangan'] ?>
                 </span>
               </li>
               <? } ?>
@@ -111,11 +111,11 @@
               ?>
               <li class="list-act">
                 <span>
-                  <img class="icon-in-out"src="assets/img/in-blue.png" alt="">
-                  <?= $latest['aktivitas'] ?> - Cucian
+                <img class="icon-in-out"src="static/img/<?=$latest['keterangan']?>.png" alt="">
+                  <?= $latest['waktu'] ?> - Cucian
                   <span class="barang-in-out">
                     <?= '"' . $latest['kode'] . '"'?>
-                  </span> . <?= $latest['keterangan'] ?>
+                  </span><?= $latest['keterangan'] ?>
                 </span>
               </li>
               <? } ?>
@@ -134,11 +134,11 @@
               ?>
               <li class="list-act">
                 <span>
-                  <img class="icon-in-out"src="assets/img/in-blue.png" alt="">
-                  <?= $latest['aktivitas'] ?> - Cucian
+                <img class="icon-in-out"src="static/img/<?=$latest['keterangan']?>.png" alt="">
+                  <?= $latest['waktu'] ?> - Cucian
                   <span class="barang-in-out">
                     <?= '"' . $latest['kode'] . '"'?>
-                  </span> . <?= $latest['keterangan'] ?>
+                  </span> <?= $latest['keterangan'] ?>
                 </span>
               </li>
                 <? } ?>

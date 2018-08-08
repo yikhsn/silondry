@@ -2,6 +2,7 @@
 namespace Acme\Model\Activities;
 
 use Acme\Model\CRUD;
+use Helper\TimeFormatter;
 
 class Out implements Activities{
   private $db;
@@ -16,6 +17,7 @@ class Out implements Activities{
 
     $array = array_map(function($data) {
       return array(
+          'waktu'       => TimeFormatter::elapsed($data['keluar']),
           'aktivitas'   => $data['keluar'],
           'kode'        => $data['kode'],
           'diambil'     => $data['diambil'],

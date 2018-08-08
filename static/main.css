@@ -243,10 +243,10 @@
 
 .list-act {
   list-style: none;
-  font-size: 13px;
+  font-size: 12px;
   /* font-weight: 600; */
   color: var(--text-color-primary);
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .list-act:last-child {
