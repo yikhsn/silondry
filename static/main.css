@@ -266,7 +266,6 @@
 
 .text-row-table{
   font-size: 13px;
-  /* font-weight: 600; */
   color: var(--text-color-primary);
 }
 
@@ -280,7 +279,6 @@
 	color:#FFF;
 	border-radius: 25px;
 	text-align:center;
-	/* box-shadow: 2px 2px 3px #999; */
 }
 
 .button-float span{
