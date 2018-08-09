@@ -66,15 +66,12 @@
   font-weight: 600;
 }
 
-
-
 .navbar-title-silony{
   text-decoration: none;
   font-size: 30px;
   font-weight: 500;
   text-align: center;
 }
-
 
 #navbar-silony {
   /* background: white; */
@@ -83,7 +80,6 @@
   height: 50px;
   border-left: 1px solid white;
 }
-
 
 #body-silony-container{
   padding: 20px;
@@ -108,62 +104,61 @@
   padding-bottom: 40px;
 }
 
-.ringkasan{
-  margin-bottom: 20px;
+#ringkasan{
+  height: auto;
 }
 
-.ringkasan-umum{
-  width: 66%;
-  height: 400px;
-  margin-right: 21px;
+.ringkasan-teks{
+  padding-right: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;  
+  font-size: 18px;
+  color: var(--text-color-secondary);
+}
+
+.ringkasan-utama{
+  width: 32.1%;
+  height: auto;
+  background: var(--background-secondary-color);
+  margin-right: 20px;
+}
+
+.ringkasan-header-box{
+  display: inline;
+}
+
+.ringkasan-judul {
+  display: inline;  
+  color: var(--third-color);
+  font-size: 14px;
+}
+
+.ringkasan-selengkapnya{
+  float: right;
+  color : var(--text-color-secondary);
+  font-size: 12px;
+  padding-top: 4px;
+}
+
+.ringkasan-jumlah-masuk{
   padding: 20px;
-  background: var(--background-primary-color);  
-}
-
-.ringkasan-umum-title{
-  font-size: 14px;
-  color: var(--text-color-secondary);
-}
-
-.tanggal-ringkasan {
-  transform: rotate(290deg);
-  margin-bottom: 50px;
-  color: var(--text-color-secondary);
-}
-
-.ringkasan-inti {
-  width: 32%;
-  margin-right: 0;
-}
-
-.ringkasan-inti-container{
-  padding: 20px;  
-  height: 220px;
   margin-bottom: 20px;
-  background: var(--background-primary-color);  
+  background: var(--background-primary-color);
+  height: 230px;
 }
 
-/* .ringkasan-inti-header {
-} */
-
-.ringkasan-inti-title{
-  font-size: 14px;
-  color: var(--text-color-secondary);
-}
-
-.ringkasan-inti-body {
+.ringkasan-masuk-body {
   text-align: center;
 }
 
 .ringkasan-hari-ini{
   font-size: 90px;
   color: var(--text-color-third);
-  padding: 0;
-  height: 110px;
 }
 
 .banding-target-container{
   text-align: center;
+  margin-top: 0;
 }
 
 .banding-target {
@@ -177,18 +172,20 @@
   color: var(--text-color-secondary);
 }
 
-.barang-belum-diambil {
+.ringkasan-belum-diambil {
   padding: 20px;  
-  height: 160px;
+  height: 230px;
   background: var(--background-primary-color);
+}
+
+.ringkasan-belum-diambil-body{
   text-align: center;
 }
 
 .jumlah-belum-diambil {
   font-size: 90px;
   color: var(--text-color-third);
-  padding: 0;
-  height: 110px;
+  margin-bottom: 20px;
 }
 
 .belum-diambil-text {
@@ -196,19 +193,7 @@
   color: var(--text-color-secondary);
 }
 
-#latest-act{
-  height: auto;
-}
-
-.latest-act-header{
-  padding-right: 5px;
-  margin-bottom: 5px;
-  margin-top: 5px;  
-  font-size: 18px;
-  color: var(--text-color-secondary);
-}
-
-.latest-act-detail{
+.ringkasan-aktivitas{
   width: 32.1%;
   height: auto;
   background: var(--background-primary-color);
@@ -216,40 +201,23 @@
   padding: 20px;
 }
 
-.latest-act-detail.latest-act-out {
+.ringkasan-aktivitas:nth-child(3){
   margin-right: 0;
 }
 
-.latest-act-title{
-  display: inline;
-}
-
-.latest-title-text {
-  display: inline;  
-  color: var(--third-color);
-  font-size: 14px;
-}
-
-.see-more-text{
-  float: right;
-  color : var(--text-color-secondary);
-  font-size: 12px;
-  padding-top: 4px;
-}
-
-.latest-act-body{
+.ringkasan-aktivitas-body{
   padding: 20px;
 }
 
-.list-act {
+.daftar-aktivitas {
   list-style: none;
   font-size: 12px;
   /* font-weight: 600; */
   color: var(--text-color-primary);
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
-.list-act:last-child {
+.daftar-aktivitas:last-child {
   margin-bottom: 0;
 }
 
@@ -321,38 +289,6 @@
 
 tr{
   padding : 40px;
-}
-
-/* body {
-  background-color: #1D1F20;
-} */
-
-.ringkasan-umum-body{
-  padding: 20px;
-}
-
-
-/* stylesheet untuk statistik vertical pada ringkasan */
-
-.progress-bar-vertical {
-  width: 52.5px;
-  min-height: 300px;
-  display: flex;
-  align-items: flex-end;
-  margin-right: 45px;
-  float: left;
-}
-.progress-bar-vertical:nth-last-child(1) {
-  margin-right: 0;
-}
-
-.progress-bar-vertical .progress-bar {
-  text-align: center;
-  width: 100%;
-  height: 0;
-  -webkit-transition: height 0.6s ease;
-  -o-transition: height 0.6s ease;
-  transition: height 0.6s ease;
 }
 
 /* stylesheet form add and edit data */

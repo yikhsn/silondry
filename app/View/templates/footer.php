@@ -1,6 +1,8 @@
         </div>
         <div class="footer-container">
-            <div class="copyright">&copy; 2018 | SILONDRY</div>      
+          <div class="copyright">&copy; 2018 | SILONDRY created with love by 
+            <a href="https://github.com/yikhsn">Yaumil Ikhsan</a>
+          </div>      
         </div>
       </div>
     </div>

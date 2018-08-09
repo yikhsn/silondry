@@ -6,112 +6,67 @@
 
   <div class="row no-gutters">
     <div class="col-12">
-      <div class="row no-gutters" id="ringkasan-container">
-        <div class="ringkasan ringkasan-umum">
-          <div class="ringkasan-umum-header">
-            <div class="ringkasan-umum-title">
-              Ringkasan 7 hari terakhir
-            </div>
-          </div>
-          <div class="ringkasan-umum-body">
-          <?
-          foreach($this->thisWeekInsight as $data){
-          ?>
-            <div class="progress progress-bar-vertical">
-              <div class="progress-bar" role="progressbar"
-                aria-valuenow="<? echo $data['reach'] ?>" aria-valuemin="0"
-                aria-valuemax="100" style="height: <? echo $data['reach'] ?>;">
-              </div>
-              <span class="tanggal-ringkasan">
-                <?
-                  echo $data['date']
-                ?>
-              </span>
-            </div>
-          <?
-          }
-          ?>
-          </div>
-        </div>
-        <div class="ringkasan ringkasan-inti">
-          <div class="ringkasan-inti-container">
-            <div class="ringkasan-inti-header">
-              <div class="ringkasan-inti-title">
-                Hari ini
-              </div>
-            </div>
-            <?
-              $today = $this->todayInsight;
-            ?>
-            <div class="ringkasan-inti-body">
-              <div class="ringkasan-hari-ini">
-                <? echo $today['today']; ?>
-              </div>
-              <div class="banding-target-container">
-                <span class="banding-target">
-                  -<? echo $today['minus'] ?>%
-                </span>
-                <span class="banding-target-text">
-                  dari target harian
-                </span>
-                </div>
-            </div>
-          </div>
-          <div class="barang-belum-diambil">
-            <div class="jumlah-belum-diambil">
-              <?= $this->notTaken; ?>
-            </div>
-            <div class="belum-diambil-text">
-              Cucian belum diambil
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-12">
-      <div id="latest-act">
-        <div class="latest-act-header">
+      <div id="ringkasan">
+        <div class="ringkasan-teks">
           Aktivitas Terakhir Laundry
         </div>
         <div class="row no-gutters">
-          <div class="latest-act-detail latest-act-all">
-            <div class="latest-act-title">
-              <div class="latest-title-text">Semua Aktivitas</div>
-              <div class="see-more-text">
-                Selengkapnya
+          <div class="ringkasan-utama">
+            <div class="ringkasan-jumlah-masuk">
+              <div class="ringkasan-header-box">
+                <div class="ringkasan-judul">Hari ini</div>
+                <div class="ringkasan-selengkapnya">
+                  Selengkapnya
+                </div>
               </div>
-            </div>
-            <div class="latest-act-body">
-            <?
-               foreach($this->latestAll as $latest){
-            ?>
-             <li class="list-act">
-                <span>
-                  <img class="icon-in-out"src="static/img/<?=$latest['keterangan']?>.png" alt="">
-                  <?= $latest['waktu'] ?> - Cucian
-                  <span class="barang-in-out">
-                    <?= '"' . $latest['kode'] . '"'?>
-                  </span> <?= $latest['keterangan'] ?>
-                </span>
-              </li>
-              <? } ?>
+              <?
+                $today = $this->todayInsight;
+              ?>
+              <div class="ringkasan-masuk-body">
+                <div class="ringkasan-hari-ini">
+                  <? echo $today['today']; ?>
+                </div>
+                <div class="banding-target-container">
+                  <span class="banding-target">
+                    -<? echo $today['minus'] ?>%
+                  </span>
+                  <span class="banding-target-text">
+                    dari target harian
+                  </span>
+                  </div>
+                </div>
+              </div>
+              <div class="ringkasan-belum-diambil">
+                <div class="ringkasan-header-box">
+                  <div class="ringkasan-judul">Belum Diambil</div>
+                  <div class="ringkasan-selengkapnya">
+                    Selengkapnya
+                  </div>
+                </div>
+                <div class="ringkasan-belum-diambil-body">
+                  <div class="jumlah-belum-diambil">
+                    <?= $this->notTaken; ?>
+                  </div>
+                  <div class="belum-diambil-text">
+                    Cucian belum diambil
+                  </div>
+                </div>                
             </div>
           </div>
-          <div class="latest-act-detail latest-act-all">
-            <div class="latest-act-title">
-              <div class="latest-title-text">Cucian Masuk</div>
-              <div class="see-more-text">
+          <div class="ringkasan-aktivitas">
+            <div class="ringkasan-judul">
+              <div class="ringkasan-judul">Cucian Masuk</div>
+              <div class="ringkasan-selengkapnya">
                 Selengkapnya
               </div>
             </div>
-            <div class="latest-act-body">
+            <div class="ringkasan-aktivitas-body">
               <?
                 foreach($this->latestIn as $latest){
               ?>
-              <li class="list-act">
+              <li class="daftar-aktivitas">
                 <span>
-                <img class="icon-in-out"src="static/img/<?=$latest['keterangan']?>.png" alt="">
+                <img class="icon-in-out"src="static/img/<?=$latest['keterangan']?>.png">
                   <?= $latest['waktu'] ?> - Cucian
                   <span class="barang-in-out">
                     <?= '"' . $latest['kode'] . '"'?>
@@ -121,20 +76,20 @@
               <? } ?>
             </div>
           </div>
-          <div class="latest-act-detail latest-act-out">
-            <div class="latest-act-title">
-              <div class="latest-title-text">Cucian Keluar</div>
-              <div class="see-more-text">
+          <div class="ringkasan-aktivitas">
+            <div class="ringkasan-judul">
+              <div class="ringkasan-judul">Cucian Keluar</div>
+              <div class="ringkasan-selengkapnya">
                 Selengkapnya
               </div>
             </div>
-            <div class="latest-act-body">
+            <div class="ringkasan-aktivitas-body">
               <?
                 foreach($this->latestOut as $latest){
               ?>
-              <li class="list-act">
+              <li class="daftar-aktivitas">
                 <span>
-                <img class="icon-in-out"src="static/img/<?=$latest['keterangan']?>.png" alt="">
+                <img class="icon-in-out"src="static/img/<?=$latest['keterangan']?>.png">
                   <?= $latest['waktu'] ?> - Cucian
                   <span class="barang-in-out">
                     <?= '"' . $latest['kode'] . '"'?>
