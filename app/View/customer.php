@@ -16,10 +16,9 @@
       </div>
 
       <div class="body-content">
-        <table class="table table-sm">
+        <table class="table table-sm text-center">
           <thead>
             <tr class="header-table">
-              <th class="text-header-table" scope="col">No</th>
               <th class="text-header-table" scope="col">ID Pelanggan</th>
               <th class="text-header-table" scope="col">Nama</th>
               <th class="text-header-table" scope="col">Alamat</th>
@@ -30,36 +29,33 @@
           </thead>
           <tbody>
             <?
-              $i = 1;
               foreach($this->customer as $person){
             ?>
             <tr class="row-table">
-              <td class="text-row-table" scope="">
-                <? echo $i++  ?>
-              </td>
-              <td class="text-row-table" scope="">
+             
+              <td class="text-row-table align-middle">
                 <? echo $person->id_pelanggan ?>
               </td>
-              <td class="text-row-table" scope="">
+              <td class="text-row-table align-middle">
                 <? echo $person->nama ?>
               </td>
-              <td class="text-row-table" scope="">
+              <td class="text-row-table align-middle">
                 <? echo $person->alamat ?>
               </td>
-              <td class="text-row-table" scope="">
+              <td class="text-row-table align-middle">
                 <? echo $person->nomor_telpon ?>
               </td>
-              <td class="text-row-table" scope="">
+              <td class="text-row-table align-middle">
                 <? echo $person->nomor_identitas ?>
               </td>
-              <td class="text-row-table" scope="">
-                <a class="btn btn-sm btn-primary" 
+              <td class="text-row-table align-middle">
+              <a class="btn btn-sm btn-primary" 
+                  href="<?= ROOT_URL ?>?p=customer&amp;a=edit&amp;id_pelanggan=<?=$person->id_pelanggan ?>">
+                  &nbsp;Edit&nbsp;
+                </a>
+                <a class="btn btn-sm btn-secondary" 
                   href="<?= ROOT_URL ?>?p=customer&amp;a=delete&amp;id_pelanggan=<?=$person->id_pelanggan ?>">
                   Hapus
-                </a>
-                <a class="btn btn-sm btn-warning" 
-                  href="<?= ROOT_URL ?>?p=customer&amp;a=edit&amp;id_pelanggan=<?=$person->id_pelanggan ?>">
-                  Edit
                 </a>
               </td>     
             </tr>

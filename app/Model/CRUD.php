@@ -126,9 +126,13 @@ class CRUD
    * @param int limit
    * @return object data
    */
-  public function getLimit($table, $offset, $limit)
+  public function getLimit($table, $offset, $limit, $order)
   {
-    $stmt = $this->db->prepare("SELECT * FROM $table LIMIT :offset, :limit");
+    $stmt = $this->db->prepare("SELECT * FROM $table 
+                                ORDER BY $order DESC 
+                                LIMIT :offset, :limit"
+                              );
+
     $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
     $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
     $stmt->execute();
@@ -145,7 +149,10 @@ class CRUD
    */
   public function getLimitBy($table, $limit, $order)
   {
-    $stmt = $this->db->query("SELECT * FROM $table ORDER BY $order DESC LIMIT $limit");
+    $stmt = $this->db->query("SELECT * FROM $table 
+                              ORDER BY $order DESC 
+                              LIMIT $limit"
+                            );
     $stmt->execute();
 
     return $stmt->fetchAll(PDO::FETCH_ASSOC);

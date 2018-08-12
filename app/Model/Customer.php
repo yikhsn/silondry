@@ -118,7 +118,8 @@ class Customer
     if ($this->currentPage > 1)
       $start = ($this->currentPage * $this->limit) - $this->limit;
         
-    return $this->db->getLimit("pelanggan", $start, $this->limit);
+    return 
+      $this->db->getLimit("pelanggan", $start, $this->limit, 'id_pelanggan');
   }
 
   /**

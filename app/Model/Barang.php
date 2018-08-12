@@ -117,7 +117,7 @@ class Barang
     if ($this->currentPage > 1)
       $start = ($this->currentPage * $this->limit) - $this->limit;
     
-    return $this->db->getLimit("barang", $start, $this->limit);
+    return $this->db->getLimit("barang", $start, $this->limit, 'kode');
   }
 
   /**
