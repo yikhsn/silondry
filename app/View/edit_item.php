@@ -37,7 +37,7 @@
             Harga
           </label>
           <input type="text" name="harga" id="harga" class="form-control"
-              value="<?= $item->harga ?>">
+              value="<?= $item->harga ?>" readonly>
         </div>
         <div class="form-group">
           <label class="col-form-label" for="masuk">Waktu Masuk</label>

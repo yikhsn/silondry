@@ -16,6 +16,7 @@
   min-height: 600px;
   background: linear-gradient(to bottom, #016DAD, #0095C0);
   align-content: center;
+  font-family: 'Fira Sans';
 }
 
 .panel-container a{
@@ -56,6 +57,13 @@
 .menu-link-panel {
   /* padding-left: 40px; */
   color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.menu-link-panel-active {
+  /* padding-left: 40px; */
+  color: #aaa;
   font-size: 14px;
   font-weight: 600;
 }

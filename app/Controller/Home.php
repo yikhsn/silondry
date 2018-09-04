@@ -3,7 +3,7 @@ namespace Acme\Controller;
 
 use Acme\Engine\Util;
 use Acme\Model\Insight\Insight;
-use Acme\Model\Activities\{In, Out, All, Activities};
+use Acme\Model\Activities\{In, Out, Activities};
 use Acme\Model\Barang;
 use Acme\Auth\Session;
 
@@ -25,7 +25,6 @@ class Home
     $this->insight = new Insight;
     $this->latestIn = new In;
     $this->latestOut = new Out;
-    $this->latestAll = new All(new In, new Out);
     $this->barang = new Barang;
   }
 
@@ -43,7 +42,6 @@ class Home
     $this->util->thisWeekInsight  = $this->insight->weekly();
     $this->util->latestIn         = $this->latestIn->getData(10);
     $this->util->latestOut        = $this->latestOut->getData(10);
-    $this->util->latestAll        = $this->latestAll->getData(10);
     $this->util->getView('index');
   }
 

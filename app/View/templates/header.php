@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="static/main.css">
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Fira+Sans">
   <title>Document</title>
 </head>
 <body>
@@ -20,17 +22,17 @@
         <ul class="menu-panel-container">
           <a href="?p=home">
             <li class="menu-item-panel">
-              <span class="menu-link-panel">Dashboard</span>
+              <span id="text-menu-dashboard" class="menu-link-panel">Dashboard</span>
             </li>
           </a>
           <a href="?p=barang">
             <li class="menu-item-panel">
-              <span class="menu-link-panel">Barang</span>
+              <span id="text-menu-barang" class="menu-link-panel">Barang</span>
             </li>
           </a>
           <a href="?p=customer">
             <li class="menu-item-panel">
-              <span class="menu-link-panel">Pelanggan</span>
+              <span id="text-menu-pelanggan" class="menu-link-panel">Pelanggan</span>
             </li>
           </a>
           <a href="?p=admin&amp;a=change">
@@ -57,9 +59,6 @@
 
         <div class="collapse navbar-collapse" id="navbar-text">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="?p=admin&amp;a=register">Register</a>
-            </li>
           </ul>
           <span class="navbar-text">Hei, Selamat Datang</span>
         </div>

@@ -20,7 +20,7 @@ require_once "vendor/autoload.php";
           <div class="card-body">
             <div class="col-12">
               <h3 class="card-title auth-title">Login</h3>
-              <form action="" method="post">
+              <form autocomplete="off" action="" method="post">
                 <div class="form-group">
                   <label class="label-form-auth" for="username">Username</label>
                   <input class="form-control" type="text" name="username" id="username" placeholder="Username">

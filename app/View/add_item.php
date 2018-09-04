@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
           <label class="col-form-label" for="harga">Harga</label>
-          <input type="text" name="harga" id="harga" class="form-control">
+          <input type="text" name="harga" id="harga" class="form-control" readonly>
         </div>
         <div class="form-group">
           <label class="col-form-label" for="masuk">Masuk</label>
